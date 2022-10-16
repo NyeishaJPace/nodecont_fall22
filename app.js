@@ -10,9 +10,6 @@ app.get('/hello', function(req, res){
     res.render('task.ejs');
 })
 
-app.post('/', (req, res) => {
-    console.log(req)
-})
 
 app.listen(3000, function(){
     console.log('App listening on port 3000')
