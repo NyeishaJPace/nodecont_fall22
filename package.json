@@ -1,0 +1,22 @@
+{
+  "name": "nodecont_fall22",
+  "version": "1.0.0",
+  "description": "project continued",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyeishaJPace/nodecont_fall22.git"
+  },
+  "author": "Nyeisha Pace",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NyeishaJPace/nodecont_fall22/issues"
+  },
+  "homepage": "https://github.com/NyeishaJPace/nodecont_fall22#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
