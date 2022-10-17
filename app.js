@@ -6,8 +6,16 @@ app.use(express.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
 
 
-app.get('/hello', function(req, res){
-    res.render('task.ejs');
+app.get('/', function(req, res){
+    Task.find(function(err, task){
+        console.log(task)
+        if(err){
+            res.json({"Error: ": err})
+        } else {
+            res.render('task.ejs', {taskList: task}); 
+        }
+    })
+    
 })
 
 

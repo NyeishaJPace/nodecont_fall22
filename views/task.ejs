@@ -4,5 +4,21 @@
         Task Example
     </title>
     <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+    <script>
+        function done(taskTag){
+            const _id = taskTag.getAttribute("data-taskID");       //write API call
+            console.log(_id)
+            axios.post('/', {
+                id: _id
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        
+    </script>
 </head>
 <form action="/" method="POST" class="task-header"></form>
