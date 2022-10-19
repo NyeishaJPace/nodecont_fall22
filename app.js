@@ -7,11 +7,18 @@ app.use(express.urlencoded({ extended: true }))
 app.set("view engine", "ejs");
 
 
-axios
-    .get("https://xkcd.com/614/info.0.json")
-    .then(function (response){
-        console.log(response);
-    });
+
+axios.get('https://xkcd.com/614/info.0.json/')
+    .then(function(response) {
+        console.log(response.data);
+    })
+
+// axios.get('/https://xkcd.com/614/info.0.json')
+//     .then(function (response){
+//         console.log(response);
+//     }).catch(function(error){
+//         console.log(error);
+//     });
 
 // app.get('/', function(req, res){
 //     Task.find(function(err, task){
