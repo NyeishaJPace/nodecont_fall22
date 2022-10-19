@@ -22,10 +22,26 @@
         </script> -->
     </head>
 <body>
-    <form action="/" method="POST" class="task-header"></form>
-    <img src="https://xkcd.com/614/info.0.json">
-    <p id="comicSafeTitle"></p>
-    <p id="comicDate"></p>
-    <p id="comicTranscript"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text text-center">
+                <p id="comicTitle">"{{ comic.title}}"</p> 
+                <p id="comicName">- XKCD </p>
+    
+                <!-- random button -->
+                <form class="form-button" action="/" method="post">
+                    <a href="/id/{{ random 1 614 }}"><p class="form-control">Random</p></a>
+                </form>
+    
+                <!-- Comic and Date -->
+                <img src={{ comic.img }} alt={{ comic.alt }} class="ComicData">                    
+                <p id="comicDate">{{ comic.month }}/{{ comic.day }}/{{ comic.year }}</p>
+    
+    
+                  </div>
+              </div>
+            </div>  
+        </div>
+    </div>
 
 </body>
