@@ -14,16 +14,23 @@ mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, "MongoDB connection error: "))
 
+
+
 app.get('/', function(req, res){
-    axios.get('https://xkcd.com/614/info.0.json').then(function(response){
+    let comicData = {}
+    randComic = Math.floor(Math.random()*2682)+1
+    String(randComic)
+    console.log(randComic)
+    axios.get('https://xkcd.com/'+ randComic + '/info.0.json').then(function(response){
         Task.find(function(err, task){
+            console.log(task)
             if(err){
                 res.json({"Error: ": err})
             } else {
-                res.render('task.ejs', {taskList: task, comicData: response.data});
+                res.render('task.ejs', {comicData: response.data});
             }
         })
-    }).catch( function(error){
+    }).catch(function(error){
         res.json({"Error: ": error})
     })
 
