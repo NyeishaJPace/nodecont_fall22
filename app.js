@@ -17,11 +17,12 @@ db.on('error', console.error.bind(console, "MongoDB connection error: "))
 
 
 app.get('/', function(req, res){
-    let comicData = {}
-    randComic = Math.floor(Math.random()*2682)+1
-    String(randComic)
-    console.log(randComic)
-    axios.get('https://xkcd.com/'+ randComic + '/info.0.json').then(function(response){
+
+    let comic = {}
+    randomComic = Math.floor(Math.random()*2682)+1
+    String(randomComic)
+    console.log(randomComic)
+    axios.get('https://xkcd.com/'+ randomComic + '/info.0.json').then(function(response){
         Task.find(function(err, task){
             console.log(task)
             if(err){
