@@ -52,14 +52,14 @@
         
         
             <h2>
-                To-Do Items
+                XKCD COMICS
             </h2>
             <div class="task">
                 <form action="/create" method="POST" class="task-header">
-                    <input type="text" name="content" />
-                    <button type="submit" >
-                        <i class="fa fa-plus"></i>
+                    <button type="Random" >
+                        <i class="form-control"></i>
                     </button>
+                   
                 </form>
                 <ul class="task-list" >
                     <% taskList.forEach(function(task){ %>
@@ -80,6 +80,8 @@
                             <button data-taskId="<%= task._id %>" class="edit" onClick="deleteItem(this)">
                                 <i class="fa fa-trash"></i>
                             </button>
+                        
+                
                         
                         </li>
                     <% }) %>

@@ -2,10 +2,6 @@ var express = require('express');
 var mongoose = require('mongoose')
 var axios = require('axios');
 var app = express();
-const bodyParser = require('body-parser');
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 
 
@@ -19,7 +15,7 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, "MongoDB connection error: "))
 
 app.get('/', function(req, res){
-    axios.get('https://xkcd.com/info.0.json').then(function(response){
+    axios.get('https://xkcd.com/614/info.0.json').then(function(response){
         Task.find(function(err, task){
             if(err){
                 res.json({"Error: ": err})
@@ -41,7 +37,7 @@ app.post('/create', (req, res) => {
         task: req.body.content,
         done: false
     })
-    newTask.save(function(err, task){
+    newTask.save(function(err){
         if(err){
             res.json({"Error: ": err})
         } else {
@@ -65,7 +61,7 @@ app.put('/done', (req, res) => {
         })
 
     } else if (typeof id === "object") {
-        id.forEach( ID => {
+        id.forEach( () => {
             Task.updateOne({_id: id}, {done: true}, function(error){
                 if(error){
                     console.log(error)
@@ -109,6 +105,9 @@ app.delete('/delete/:id', (req, res) => {
         res.redirect('/');
     }
 })
+
+
+
 
 app.listen(3000, function(){
     console.log('App listening on port 3000')
