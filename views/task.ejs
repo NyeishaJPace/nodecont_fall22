@@ -56,32 +56,15 @@
             </h2>
             <div class="task">
                 <form action="/create" method="POST" class="task-header">
-                <div class="button">
-                    Random
+                <div>
+                    <button onclick="Random()" type="button" class="btn btn-info">Random Comic</button>
                 </div>
-                   
+                
                 </form>
                 <ul class="task-list" >
                     <% taskList.forEach(function(task){ %>
                         <li class="task-list-item">
-                            <% if(task.done){ %>
-                                <div class="task-list-item-name strike-through">
-                                    <%= task.task %>
-                                </div>
-                            <% } else { %>
-                                <div class="task-list-item-name">
-                                    <%= task.task %>
-                                </div>
-                            <% } %>
                         
-                            <button data-taskId="<%= task._id %>" class="remove" onClick="done(this)">
-                                <i class="fa fa-pencil"></i>
-                            </button>
-                            <button data-taskId="<%= task._id %>" class="edit" onClick="deleteItem(this)">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        
-                
                         
                         </li>
                     <% }) %>
